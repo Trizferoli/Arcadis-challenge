@@ -1,16 +1,15 @@
 DROP DATABASE IF EXISTS arcadis;
 CREATE DATABASE arcadis
 
-DROP TABLE IF EXISTS pontos
-DROP TABLE IF EXISTS parametros_registro
-DROP TABLE IF EXISTS parametros_limite
 
+DROP TABLE IF EXISTS pontos
 CREATE TABLE pontos(
     id serial PRIMARY KEY,
     ponto_x integer NOT NULL,
     ponto_y integer NOT NULL
 );
 
+DROP TABLE IF EXISTS parametros_limite
 CREATE TABLE parametros_limite(
     id serial PRIMARY KEY,
     nome varchar(40) NOT NULL,
@@ -18,6 +17,7 @@ CREATE TABLE parametros_limite(
     valor_limite decimal NOT NULL
 )
 
+DROP TABLE IF EXISTS parametros_registro
 CREATE TABLE parametros_registro(
     id serial PRIMARY KEY,
     id_ponto integer references pontos(id) NOT NULL,
@@ -25,6 +25,7 @@ CREATE TABLE parametros_registro(
     data_coleta timestamp NOT NULL,
     valor_parametro decimal NOT NULL
 );
+
 
 INSERT INTO parametros_limite(nome, unidade_de_medida, valor_limite) VALUES
 ('Alumínio dissolvido', 'mg/l', 0.1),
