@@ -11,7 +11,6 @@
 // });
 
 // module.exports = knex;
-console.log(process.env.DB_CLIENT)
 const knex = require('knex')({
     client: process.env.DB_CLIENT,
     connection: {
