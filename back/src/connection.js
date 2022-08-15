@@ -1,10 +1,27 @@
+
+// const knex = require('knex')({
+//     client: 'pg',
+//     connection: {
+//         host: 'localhost',
+//         user: 'postgres',
+//         password: '071011',
+//         database: 'arcadis',
+//     }
+
+// });
+
+// module.exports = knex;
+console.log(process.env.DB_CLIENT)
 const knex = require('knex')({
     client: process.env.DB_CLIENT,
     connection: {
-        host: process.env.DB_HOST,
         user: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
+        host: process.env.DB_HOST,
         database: process.env.DB_DATABASE,
+        password: process.env.DB_PASSWORD,
+        ssl: {
+            rejectUnauthorized: false
+        }
     }
 
 });
