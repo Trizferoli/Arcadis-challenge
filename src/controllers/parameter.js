@@ -33,7 +33,7 @@ const addParameter = async (req, res) => {
 const getParameter = async (req, res) => {
     const { id_parametro } = req.params;
     const { id_ponto } = req.query;
-    //VERIFICAR SE PONTO EXISTE 
+
     try {
 
         if (id_ponto) {
