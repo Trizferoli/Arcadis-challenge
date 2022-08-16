@@ -12,7 +12,8 @@
 
 // module.exports = knex;
 const knex = require('knex')({
-    client: process.env.DB_CLIENT,
+    // client: process.env.DB_CLIENT,
+    client: 'pg',
     connection: {
         user: process.env.DB_USER,
         host: process.env.DB_HOST,
