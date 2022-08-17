@@ -30,6 +30,20 @@ const addParameter = async (req, res) => {
 }
 
 
+const getAllParameters = async (req, res) => {
+
+    try {
+
+        const parametros = await knex('parametros_registro').join('pontos', 'id_ponto', 'pontos.id').join('parametros_limite', 'id_parametros_limite', 'parametros_limite.id').select('*');
+
+        return res.status(200).json(parametros);
+
+    } catch (error) {
+        return res.status(400).json({ message: error.message });
+    }
+
+}
+
 const getParameter = async (req, res) => {
     const { id_parametro } = req.params;
     const { id_ponto } = req.query;
@@ -69,4 +83,4 @@ const getIrregularParameters = async (req, res) => {
     }
 }
 
-module.exports = { addParameter, getIrregularParameters, getParameter }
+module.exports = { addParameter, getIrregularParameters, getParameter, getAllParameters }

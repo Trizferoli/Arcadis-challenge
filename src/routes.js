@@ -2,7 +2,7 @@ const { request } = require('express');
 const express = require('express');
 const routes = express();
 const { addPoint, getAllPoints, getPoint } = require('./controllers/points');
-const { addParameter, getIrregularParameters, getParameter } = require('./controllers/parameter');
+const { addParameter, getIrregularParameters, getParameter, getAllParameters } = require('./controllers/parameter');
 
 //PONTOS
 routes.post('/ponto', addPoint);
@@ -11,6 +11,7 @@ routes.get('/pontos', getAllPoints);
 
 // //PARAMETROS
 routes.post('/parametro', addParameter);
+routes.get('/parametros', getAllParameters);
 routes.get('/parametro/:id_parametro', getParameter);
 routes.get('/irregulares', getIrregularParameters);
 
