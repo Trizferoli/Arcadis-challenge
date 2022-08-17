@@ -58,10 +58,6 @@ const getAllPoints = async (req, res) => {
                 .select('parametros_registro.data_coleta', 'parametros_registro.valor_parametro', 'parametros_limite.nome', 'parametros_limite.unidade_de_medida').where('parametros_registro.id_ponto', ponto.id).groupBy('parametros_registro.data_coleta').groupBy('parametros_registro.valor_parametro').groupBy('parametros_limite.nome').groupBy('parametros_limite.unidade_de_medida').groupBy('parametros_registro.id_ponto').orderBy('parametros_registro.id_ponto');
             ponto.parametros = [...parameters];
         }
-        // const points = await knex('pontos')
-        //     .fullOuterJoin('parametros_registro', 'pontos.id', '=', 'parametros_registro.id_ponto')
-        //     .leftJoin('parametros_limite', 'parametros_registro.id_parametros_limite', '=', 'parametros_limite.id').as('t1')
-        //     .select('pontos.id', 'parametros_registro.data_coleta', 'parametros_registro.valor_parametro', 'pontos.ponto_x', 'pontos.ponto_y', 'parametros_limite.nome', 'parametros_limite.unidade_de_medida').groupBy('parametros_registro.data_coleta').groupBy('parametros_registro.valor_parametro').groupBy('parametros_limite.nome').groupBy('parametros_limite.unidade_de_medida').groupBy('pontos.id').orderBy('pontos.id')
 
         return res.status(200).json(points)
     } catch (error) {
