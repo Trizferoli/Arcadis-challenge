@@ -1,6 +1,7 @@
 # Arcadis-challenge
 
 <p>MVP of an API for registering and consulting geographic points and its parameters. Made for a selection project.<p/>
+Api can be accessed through: https://arcadis.herokuapp.com/
 
 ## Technologies
 
@@ -31,7 +32,7 @@ _**Parameters**_
 
 ## Routes
 
-### ```/ponto```
+### ```Post: /ponto```
 #### input:
 Resister new points, sending x and y through JSON body:
 - A point can only be registered once.
@@ -44,11 +45,13 @@ Resister new points, sending x and y through JSON body:
 ```
 #### output if invalid request:
 ```javscript
-error.message
+{
+	"message": "error.message"
+}
 ```
 ---
 
-### ```/ponto/:id```
+### ```Get: /ponto/:id```
 Get an especific point:
 - Send id through url parameter.
 #### output:
@@ -67,9 +70,56 @@ Get an especific point:
 }
 ```
 
+#### output if invalid request example:
+```javscript
+{
+	"message": "Este ponto não está cadastrado."
+}
+```
+---
+
+### ```Get: /pontos```
+Get all points:
+#### output:
+```javascript
+{
+	"id": 2,
+	"ponto_x": 2,
+	"ponto_y": 7,
+	"parametros": []
+},
+{
+	"id": 3,
+	"ponto_x": 1,
+	"ponto_y": 2,
+	"parametros": []
+}
+```
+
+#### output if invalid request example:
+```javscript
+{
+	"message": "error.message"
+}
+```
+---
+### ```POST: /parameter```
+#### input:
+Resister new points, sending x and y through JSON body:
+- A point can only be registered once.
+
+```javascript
+{
+	"x":1,
+	"y":1
+}
+```
 #### output if invalid request:
 ```javscript
-error.message
+{
+	"message": "error.message"
+}
 ```
+---
 
 
