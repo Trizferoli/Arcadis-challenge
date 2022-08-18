@@ -278,7 +278,7 @@ using npm:
 ```bash
 Arcadis-challenge-API 	# .env file.
 		│
-		└───src 	# connetcion to database, routes, schema for database setup, app index files.
+		└───src 	# connection to database, routes, schema for database setup, app index files.
 		    │
 		    ├───controllers  	# controllers files for parameter, parameters limit and points.
 		    │
