@@ -28,7 +28,7 @@ _**Parameters**_
 - Get specific parameter
 - Get all parameters
 - Get parameters 'COPAM/CERH_MG n° 01 -2008 água doce - classe 2' legislation limit value
-- <li>Get irregular values that do surpass the limit established by 'COPAM/CERH_MG n° 01 -2008 água doce - classe 2'
+- Get irregular values that do surpass the limit established by 'COPAM/CERH_MG n° 01 -2008 água doce - classe 2'
 
 ## Routes
 
@@ -190,6 +190,87 @@ Get all parameters registered:
 	"message": "error.message"
 }
 ```
+---
+### ```Get: /parametros-limite```
+Get all parameters limit from 'COPAM/CERH_MG n° 01 -2008 água doce - classe 2':
+
+#### output:
 	
+```javscript
+[
+	{
+		"id": 1,
+		"nome": "Alumínio dissolvido",
+		"unidade_de_medida": "mg/l",
+		"valor_limite": "0.1"
+	},
+	{
+		"id": 2,
+		"nome": "Arsênio  total",
+		"unidade_de_medida": "mg/l",
+		"valor_limite": "0.01"
+	}
+]
+```
+	
+#### output if invalid request:
+	
+```javscript
+{
+	"message": "error.message"
+}
+```
+---
+### ```Get: /irregulares```
+Get all parameters that don't fit in the 'COPAM/CERH_MG n° 01 -2008 água doce - classe 2' limit:
+
+#### output:
+	
+```javscript
+[
+	{
+		"id": 1,
+		"data_coleta": "2022-08-02T00:00:00.000Z",
+		"valor_parametro": "0.2",
+		"ponto_x": 1,
+		"ponto_y": 7,
+		"nome": "Alumínio dissolvido",
+		"unidade_de_medida": "mg/l"
+	}
+]
+```
+	
+#### output if invalid request:
+	
+```javscript
+{
+	"message": "error.message"
+}
+```
+
+---
+
+## To run the project remotely:
+
+1. Fork the projects repository
+
+2. Clone the repository
+
+ex. using SSH:
+```sh
+   git clone git@github.com:Trizferoli/Arcadis-challenge-API.git
+```
+
+3. Alter .env configurations with your PG database info.
+
+4. Install packages
+using npm:
+```sh
+    npm install
+```
+5. Run the project
+```sh
+    npm start
+```
 
 
