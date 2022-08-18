@@ -258,7 +258,7 @@ Get all parameters that don't fit in the 'COPAM/CERH_MG n° 01 -2008 água doce 
 
 ex. using SSH:
 ```sh
-   git clone git@github.com:Trizferoli/Arcadis-challenge-API.git
+   git clone git@github.com:{yourUserName}/Arcadis-challenge-API.git
 ```
 
 3. Alter .env configurations with your PG database info.
