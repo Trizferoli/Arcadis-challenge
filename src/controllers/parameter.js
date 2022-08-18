@@ -15,8 +15,8 @@ const addParameter = async (req, res) => {
         
         const parametersLimit = await knex('parametros_limite').select('id').returning('id');
         
-        if(!parametersLimit.includes(id_parametros_limite)){
-            return res.status(404).json({ "message":  parametersLimit});
+        if(!parametersLimit.includes([...id_parametros_limite])){
+            return res.status(404).json({ "message":[...parametersLimit]});
         }
         
         const parameter = await knex('parametros_registro').insert({
