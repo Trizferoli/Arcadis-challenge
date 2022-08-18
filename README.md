@@ -33,10 +33,9 @@ _**Parameters**_
 ## Routes
 
 ### ```Post: /ponto```
-#### input:
 Resister new points, sending x and y through JSON body:
 - A point can only be registered once.
-
+#### input:
 ```javascript
 {
 	"x":1,
@@ -53,7 +52,7 @@ Resister new points, sending x and y through JSON body:
 
 ### ```Get: /ponto/:id```
 Get an especific point:
-- Send id through url parameter.
+Send id through url parameter.
 #### output:
 ```javascript
 {
@@ -103,15 +102,15 @@ Get all points:
 }
 ```
 ---
-### ```POST: /parameter```
+### ```POST: /parametro```
+Resister new parameter, sending id limit parameter, point id, value and date JSON body:
 #### input:
-Resister new points, sending x and y through JSON body:
-- A point can only be registered once.
-
 ```javascript
 {
-	"x":1,
-	"y":1
+	"id_parametros_limite":7,
+	"id_ponto": 12,
+	"valor": 0.01,
+	"data": "2021-07-14T22:03:30.170Z"
 }
 ```
 #### output if invalid request:
@@ -121,5 +120,76 @@ Resister new points, sending x and y through JSON body:
 }
 ```
 ---
+### ```Get: /parametro/:id```
+Get specific parameter through its id:
+Send id through url parameter.
+#### output:
+	
+```javscript
+[
+	{
+		"id": 1,
+		"id_ponto": 5,
+		"id_parametros_limite": 1,
+		"data_coleta": "2022-08-27T00:00:00.000Z",
+		"valor_parametro": "1",
+		"ponto_x": -2,
+		"ponto_y": -1,
+		"nome": "Alumínio dissolvido",
+		"unidade_de_medida": "mg/l",
+		"valor_limite": "0.1"
+	}
+]
+```
+	
+#### output if invalid request:
+	
+```javscript
+{
+	"message": "error.message"
+}
+```
+---
+### ```Get: /parametros```
+Get all parameters registered:
+
+#### output:
+	
+```javscript
+[
+	{
+		"id": 1,
+		"id_ponto": 5,
+		"id_parametros_limite": 1,
+		"data_coleta": "2022-08-27T00:00:00.000Z",
+		"valor_parametro": "1",
+		"ponto_x": -2,
+		"ponto_y": -1,
+		"nome": "Alumínio dissolvido",
+		"unidade_de_medida": "mg/l",
+		"valor_limite": "0.1"
+	},
+	{
+		"id": 1,
+		"id_ponto": 1,
+		"id_parametros_limite": 1,
+		"data_coleta": "2022-08-06T00:00:00.000Z",
+		"valor_parametro": "0.09",
+		"ponto_x": 1,
+		"ponto_y": 7,
+		"nome": "Alumínio dissolvido",
+		"unidade_de_medida": "mg/l",
+		"valor_limite": "0.1"
+	}]
+```
+	
+#### output if invalid request:
+	
+```javscript
+{
+	"message": "error.message"
+}
+```
+	
 
 
