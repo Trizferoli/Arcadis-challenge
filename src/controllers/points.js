@@ -28,7 +28,7 @@ const addPoint = async (req, res) => {
 const getPoint = async (req, res) => {
     const { id } = req.params
     try {
-        const point = await knex('pontos').select('*').first();
+        const point = await knex('pontos').where('id',id).select('*').first();
 
         if (!point) {
             return res.status(404).json({ "message": "Este ponto não está cadastrado." })
