@@ -13,7 +13,7 @@ const addParameter = async (req, res) => {
             return res.status(404).json({ "message": "O ponto informado não foi encontrado." });
         }
         
-        const parametersLimit = await knex('parametros_limite').returning('id');
+        const parametersLimit = await knex('parametros_limite').select('id').returning('id');
         
         if(!parametersLimit.includes(id_parametros_limite)){
             return res.status(404).json({ "message":  parametersLimit});
